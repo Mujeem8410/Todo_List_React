@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-export default function todo() {
+export default function Todo() {
     let [todo, settodo] = useState([{task:"Sample-task",id:uuidv4()}]);
     let [todovalue, settodovalue] = useState("");
     let addtask = () => {
@@ -12,16 +12,15 @@ export default function todo() {
         settodovalue(event.target.value);
     }
     let deleteTodo=(id)=>{
-        settodo((prevestodo)=>todo.filter((prevestodo)=>prevestodo.id!=id));
-
+        settodo((prevestodo)=>prevestodo.filter((item)=>item.id!==id));
     };
 
     return (
         <>
 
 
-            <h2>Today's Task</h2>
-            <div class="">
+            <h2>Today Task</h2>
+            <div className="">
                 <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Add your task" value={todovalue} onChange={newTaskValue}></input>
             </div>
             <br />
